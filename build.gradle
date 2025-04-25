@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:6.3.5",
+            "org.junit.jupiter:junit-jupiter:5.9.3",
+            "org.junit.jupiter:junit-jupiter-api:5.9.3"
+            //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+            //"org.slf4j:slf4j-simple:2.0.9",
+            //"org.seleniumhq.selenium:selenium-java:4.11.0",
+            //files('drivers/chromedriver')
+    )
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine"
+    )
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
